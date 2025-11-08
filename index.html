@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【生成AIコンテスト】応募ポータル</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f9fafb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+      color: #1e3a8a;
+    }
+    .card p {
+      font-size: .95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: .6rem 1.2rem;
+      border-radius: .5rem;
+      transition: background .2s;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <header>🎨 コンテスト応募ポータル</header>
+  <main id="contest-list">
+    <!-- JSでカードを自動生成 -->
+  </main>
+
+  <script>
+    const contests = [
+      {
+        title: "AI動画生成コンテスト",
+        desc: "AIで生成したオリジナル動画を募集。テーマは『人間×食べ物』。",
+        link: "https://tally.so/r/b5V4x2"
+      },
+      {
+        title: "AI動画生成コンテスト",
+        desc: "AIで生成したオリジナル動画を募集。テーマは『食べ物×動物』。",
+        link: "https://tally.so/r/b5V4x2"
+      },
+      {
+        title: "AIイラストコンテスト",
+        desc: "AIで作成したオリジナルのイラストを募集。テーマは『未来の都市』。",
+        link: "https://tally.so/r/sample2"
+      },
+      
+    ];
+
+    const list = document.getElementById("contest-list");
+    contests.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h2>${c.title}</h2>
+        <p>${c.desc}</p>
+        <a href="${c.link}" class="btn" target="_blank">応募フォームへ</a>
+      `;
+      list.appendChild(card);
+    });
+  </script>
+</body>
+</html>
